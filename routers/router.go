@@ -30,7 +30,7 @@ func InitRouter() *gin.Engine {
         // 获取用户
         apiv1.GET("/users", v1.GetUser)
         // 新建用户
-        //apiv1.POST("/users", v1.AddUser)
+        apiv1.POST("/users", v1.DingMsg)
         // 更新用户
         //apiv1.PUT("/users/:id", v1.UpdateUser)
         // 删除用户
