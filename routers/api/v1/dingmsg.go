@@ -7,19 +7,19 @@ import (
     "github.com/astaxie/beego/validation"
 
     "rwplus-backend/pkg/e"
-
+    "rwplus-backend/pkg/dingtalk"
 )
 
 type Check struct {
     Token string `valid:"Required"`
-    Type string `valid:"Required"`
+    Title string `valid:"Required"`
     Content string `valid:"Required"`
 }
 
 
 type Dingmsg struct {
    Token    string `json:"token"`
-   Type     string  `json:"type"`
+   Title     string  `json:"title"`
    Content  string  `json:"content"`
 }
 
@@ -37,9 +37,10 @@ func DingMsg(c *gin.Context) {
         ok, _ := valid.Valid(&a)
 
         if ok {
-            data["token"] = json.Token
-            data["type"] = json.Type
-            data["content"] = json.Content
+            dtoken := json.Token
+            dtitle := json.Title
+            dcontent := json.Content
+            go dingtalk.MsgPush(dtoken, dtitle, dcontent)
         } else {
             for _, err := range valid.Errors {
                 code = e.ERROR_VALID_FAIL
