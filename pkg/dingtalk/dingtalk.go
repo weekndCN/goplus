@@ -20,7 +20,7 @@ type MDMsg struct {
 
 func MsgPush(dtoken, dtitle, dtext string) {
     webHook := "https://oapi.dingtalk.com/robot/send?access_token="+dtoken
-    //fmt.Println(webHook)
+    fmt.Println(webHook)
     s := MDMsg{"markdown", MsgContent{dtitle, dtext}}
     buf, _ := json.Marshal(s)
     req, _ := http.NewRequest("POST", webHook, strings.NewReader(string(buf)))

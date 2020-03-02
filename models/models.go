@@ -18,37 +18,22 @@ type Model struct {
     ID int `gorm: "primary_key" json:"id"`
 }
 
-func init() {
-    var (
-        err error
-        dbType, dbName, user, passWord, host, tablePrefix string
-    )
+func Setup() {
+    var err error
 
-    // 获取app.ini配置文件下database分区所有的key/value
-    sec, err := setting.Cfg.GetSection("database")
-    if err != nil {
-        log.Fatalf("无法获取'database'分区: %v", err)
-    }
-
-    dbType = sec.Key("TYPE").String()
-    dbName = sec.Key("NAME").String()
-    user = sec.Key("USER").String()
-    passWord = sec.Key("PASSWORD").String()
-    host = sec.Key("HOST").String()
-    tablePrefix = sec.Key("TABLE_PREFIX").String()
-
-    db, err = gorm.Open(dbType, fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8&parseTime=True&loc=Local",
-        user,
-        passWord,
-        host,
-        dbName))
+    db, err = gorm.Open(setting.DatabaseSetting.Type,
+        fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8&parseTime=True&loc=Local",
+		setting.DatabaseSetting.User,
+		setting.DatabaseSetting.Password,
+		setting.DatabaseSetting.Host,
+		setting.DatabaseSetting.Name))
 
     if err != nil {
-        log.Println(err)
+        log.Fatalf("models.Setup err: %v", err)
     }
 
     gorm.DefaultTableNameHandler = func (db *gorm.DB, defaultTableName string) string {
-        return tablePrefix + defaultTableName
+        return setting.DatabaseSetting.TablePrefix + defaultTableName
     }
 
     // SingularTable单数表名，plural复数表名

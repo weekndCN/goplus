@@ -9,7 +9,7 @@ import (
 )
 
 // 将app.ini的RW_SECRET的值转换为byte类似，一个字节用8个”0”或”1”字符表示
-var jwtSecret = []byte(setting.RWSecret)
+var jwtSecret = []byte(setting.AppSetting.RWSecret)
 
 
 // 构造一个所有权的结构体

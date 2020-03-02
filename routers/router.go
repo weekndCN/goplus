@@ -20,7 +20,7 @@ func InitRouter() *gin.Engine {
     r.Use(gin.Recovery())
 
     // 加载app.ini的RUN_MODE参数
-    gin.SetMode(setting.RunMode)
+    gin.SetMode(setting.ServerSetting.RunMode)
 
     r.GET("/auth", api.GetAuth)
 
