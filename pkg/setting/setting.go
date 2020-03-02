@@ -24,7 +24,7 @@ ImageAllowExts = .jpg,.jpeg,.png
 
 type App struct {
     RWSecret string
-
+    RuntimeRootPath string
     ImagePrefixUrl string
     ImageSavePath string
     ImageMaxSize int

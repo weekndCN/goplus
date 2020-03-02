@@ -18,6 +18,10 @@ var MsgFlags = map[int]string {
 
     ERROR_FORMAT_FAIL               :"POST数据格式类型不支持",
     ERROR_VALID_FAIL                :"验证失败",
+
+    ERROR_UPLOAD_SAVE_IMAGE_FAIL    :"保存图片失败",
+    ERROR_UPLOAD_CHECK_IMAGE_FAIL   :"检查图片失败",
+    ERROR_UPLOAD_CHECK_IMAGE_FORMAT :"校验图片错误，图片格式或大小有问题",
 }
 
 var ValidFlags = map[string]string {

@@ -17,4 +17,11 @@ const (
 
    ERROR_FORMAT_FAIL = 30001
    ERROR_VALID_FAIL = 40001
+
+   // 保存图片失败
+    ERROR_UPLOAD_SAVE_IMAGE_FAIL = 50001
+    // 检查图片失败
+    ERROR_UPLOAD_CHECK_IMAGE_FAIL = 50002
+    // 校验图片错误，图片格式或大小有问题
+    ERROR_UPLOAD_CHECK_IMAGE_FORMAT = 50003
 )
