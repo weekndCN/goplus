@@ -35,10 +35,8 @@ func InitRouter() *gin.Engine {
         apiv1.GET("/users", v1.GetUser)
         // 新建用户
         apiv1.POST("/users", v1.DingMsg)
-        // 更新用户
-        //apiv1.PUT("/users/:id", v1.UpdateUser)
-        // 删除用户
-        //apiv1.DELETE("/users/:id", v1.DeleteUser)
+        // qrcode
+        apiv1.POST("/qrcode", v1.GenerateArticlePoster)
     }
 
     return r

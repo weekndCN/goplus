@@ -35,6 +35,7 @@ type App struct {
     ImageMaxSize int
     ImageAllowExts []string
 
+    QrCodeSavePath string
     // Add file save/export path
     ExportSavePath string
 
