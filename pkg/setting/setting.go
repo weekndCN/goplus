@@ -24,11 +24,21 @@ ImageAllowExts = .jpg,.jpeg,.png
 
 type App struct {
     RWSecret string
+
+    // images/files  get Host
+    PrefixUrl string
+
+    // Add image upload/download directory
     RuntimeRootPath string
-    ImagePrefixUrl string
+    //ImagePrefixUrl string
     ImageSavePath string
     ImageMaxSize int
     ImageAllowExts []string
+
+    // Add file save/export path
+    ExportSavePath string
+
+
 }
 
 
