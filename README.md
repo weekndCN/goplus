@@ -4,33 +4,33 @@
 
 ### LOGS
 
-- DOWNLOAD
-- TAIL
-- SEARCH
-- FILTER
+- Dowload
+- Tail
+- Search
+- Filter
 
 ### JOBS
 
-- ADD
-- DELETE
-- MODIFY
-- SCHEDULER
+- Add
+- Delete
+- Modify
+- Scheduler
 
 ### DATABASES
 
-- backup
-- recover
-- logs/size show
+- Backup
+- Recover
+- Logs/size show
 
 ### ECS
 
-- cpu
-- memory
-- io
-- disk
+- Cpu
+- Memory
+- Io
+- Disk
 
 ### SSO
 
-- pic
-- video
-- files
+- Pic
+- Video
+- Files
